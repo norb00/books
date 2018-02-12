@@ -1,6 +1,5 @@
 <div class="container-fluid">
     <div class="row" *ngFor="let book of books">
-      <a [routerLink]="['/book', book.id]">{{ book.id }}</a>
-      <a [routerLink]="['/book', book.id]">{{ book.title }}</a>
+      <a [routerLink]="['/book', book.id]">{{ book.volumeInfo.title }}</a>
     </div>
 </div>

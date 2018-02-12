@@ -1,6 +1,13 @@
 <div class="container-fluid">
-  <h4>
-    B: {{ id }}
-  </h4>
+  <p>
+    Title: {{ book.volumeInfo.title }}
+  </p>
+    Authors: 
+    <ul>
+      <li *ngFor="let author of book.volumeInfo.authors" >{{ author }}</li>
+    </ul>
+  <p>
+    <img [src]="book.volumeInfo.imageLinks.thumbnail" />
+  </p>
   <button class="btn" (click)="addToCart(id)">ADD</button>
 </div>
