@@ -7,19 +7,24 @@ import { BookListComponent } from './components/book-list/book-list.component';
 import { BookComponent } from './components/book/book.component';
 import { CartComponent } from './components/cart/cart.component';
 
+import { BookSearchService } from './book-search.service';
+import { ROUTING } from './app.routing';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookListComponent,
     BookComponent,
-    CartComponent
+    CartComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ROUTING
   ],
-  providers: [],
+  providers: [BookSearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

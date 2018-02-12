@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { BookSearchService } from '../../book-search.service';
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookListComponent implements OnInit {
 
-  constructor() { }
+    books;
+    constructor(private bookSerachService: BookSearchService) {
+        bookSerachService.bookListChanged.subscribe(
+            books => {
+                console.log('SERVICE start', books);
+                this.books = books;
+            });
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+        this.books = this.bookSerachService.getBooks();
+    }
 
 }
