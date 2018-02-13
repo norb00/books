@@ -24,7 +24,7 @@ export class BookComponent implements OnInit {
 
         this.bookSearchService.bookChanged.subscribe(book => {
             this.book = book;
-        })
+        });
     }
 
     ngOnInit() {

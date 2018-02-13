@@ -43,8 +43,8 @@ export class BookSearchService {
 
     searchBook(searchTerm?: string) {
         this.GURL = this.booksConfig.searchUrl + searchTerm;
-        console.log(this.GURL)
-        this.http.get(this.GURL).subscribe((data:any) => {
+        console.log(this.GURL);
+        this.http.get(this.GURL).subscribe((data: any) => {
             this.books = data.items;
             console.log(data);
             this.bookListChanged.next(this.books);

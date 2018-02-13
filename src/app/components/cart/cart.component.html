@@ -1,3 +1,5 @@
-<p>
-  cart works!
-</p>
+<div class="container-fluid">
+    <div class="row" *ngFor="let book of books">
+      <a [routerLink]="['/book', book.id]">{{ book.volumeInfo.title }}</a>
+    </div>
+</div>
