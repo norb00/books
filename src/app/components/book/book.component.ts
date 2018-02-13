@@ -4,20 +4,27 @@ import { CartService } from '../../cart.service';
 import { BookSearchService } from '../../book-search.service';
 
 @Component({
-  selector: 'app-book',
-  templateUrl: './book.component.html',
-  styleUrls: ['./book.component.css']
+    selector: 'app-book',
+    templateUrl: './book.component.html',
+    styleUrls: ['./book.component.css']
 })
 export class BookComponent implements OnInit {
 
     public id: string;
-    public book: {};
+    public book: {
+        volumeInfo: {
+            authors: {},
+            imageLinks: {
+                thumbnail: ''
+            },
+            title: ''
+        }
+    };
     constructor(private route: ActivatedRoute,
                 private cartService: CartService,
                 private bookSearchService: BookSearchService) {
 
         this.route.params.subscribe( params => {
-            console.log(params);
             this.id = params['id'];
             this.bookSearchService.getBook(this.id);
         });
@@ -27,19 +34,9 @@ export class BookComponent implements OnInit {
         });
     }
 
-    ngOnInit() {
-        this.book = {
-            volumeInfo: {
-                authors: [],
-                imageLinks: {
-                    thumbnail: ''
-                }
-            }
-        };
-    }
+    ngOnInit() {}
 
     addToCart(book) {
-      this.cartService.addToCart(book)
-      console.log(book);
+        this.cartService.addToCart(book);
     }
 }

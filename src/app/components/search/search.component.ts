@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class SearchComponent implements OnInit {
 
-    private searchTerm;
+    searchTerm;
     constructor(private bookSerachService: BookSearchService,
                 private router: Router) {
         this.searchTerm = '';
@@ -21,7 +21,6 @@ export class SearchComponent implements OnInit {
       if (this.searchTerm){
         this.bookSerachService.searchBook(this.searchTerm);
         this.router.navigate(['/index']);
-        console.log('Search: ', this.searchTerm);
       }
     }
 

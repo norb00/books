@@ -12,13 +12,11 @@ export class BookListComponent implements OnInit {
     constructor(private bookSerachService: BookSearchService) {
         bookSerachService.bookListChanged.subscribe(
             books => {
-                console.log('SERVICE start', books);
                 this.books = books;
             });
     }
 
     ngOnInit() {
-//        this.books = this.bookSerachService.getBooks();
     }
 
 }

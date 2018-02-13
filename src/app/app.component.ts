@@ -11,7 +11,6 @@ export class AppComponent implements OnInit {
   constructor(private cartService: CartService) {
     cartService.cartChanged.subscribe(
       books => {
-        console.log('SERVICE start', books);
             this.numberOfBooksInCart = this.cartService.getCartLength();
         });
 
