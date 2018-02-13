@@ -1,13 +1,27 @@
 <div class="container-fluid">
-  <p>
+  <h1 class="border">
     Title: {{ book.volumeInfo.title }}
-  </p>
+  </h1>
+  <div class="my-2 py-2 border">
     Authors: 
     <ul>
       <li *ngFor="let author of book.volumeInfo.authors" >{{ author }}</li>
     </ul>
-  <p>
-    <img [src]="book.volumeInfo.imageLinks.thumbnail" />
-  </p>
-  <button class="btn" (click)="addToCart(id)">ADD</button>
+  </div>
+  <div class="border my-2 py-2">
+    <img [src]="book.volumeInfo.imageLinks.thumbnail" data-toggle="modal" data-target="#thumbnailModal"/>
+
+    <div class="modal fade" 
+        *ngIf="book.volumeInfo.imageLinks?.thumbnail"
+        id="thumbnailModal" tabindex="-1" role="dialog" aria-labelledby="thumbnailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img [src]="book.volumeInfo.imageLinks.thumbnail" />
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary" (click)="addToCart(book)">ADD</button>
 </div>

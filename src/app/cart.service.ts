@@ -17,12 +17,21 @@ export class CartService {
     addToCart(book) {
         if (!this.getBook(book.id)) {
             this.books.push(book);
+            console.log(this.books);
             if (window.localStorage !== undefined) {
               localStorage.setItem('cartItems', JSON.stringify(this.books));
             }
             this.cartChanged.next(this.books);
         }
-      }
+    }
+
+    removeFromCart(book){
+        _.remove(this.books, {id: book.id});
+        if (window.localStorage !== undefined) {
+            localStorage.setItem('cartItems', JSON.stringify(this.books));
+        }
+        this.cartChanged.next(this.books);
+  }
 
     getCart() {
         return this.books;

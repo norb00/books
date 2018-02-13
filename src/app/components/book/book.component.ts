@@ -38,8 +38,8 @@ export class BookComponent implements OnInit {
         };
     }
 
-    addToCart(id: string) {
-      this.cartService.addToCart(id)
-      console.log(id);
+    addToCart(book) {
+      this.cartService.addToCart(book)
+      console.log(book);
     }
 }

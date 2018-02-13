@@ -11,16 +11,18 @@ export class SearchComponent implements OnInit {
     private searchTerm;
     constructor(private bookSerachService: BookSearchService,
                 private router: Router) {
-      this.searchTerm = 'aaaa';
+        this.searchTerm = '';
     }
 
     ngOnInit() {
     }
 
     doSearch() {
-      this.bookSerachService.searchBook(this.searchTerm);
-      this.router.navigate(['/index']);
-      console.log(this.searchTerm);
+      if (this.searchTerm){
+        this.bookSerachService.searchBook(this.searchTerm);
+        this.router.navigate(['/index']);
+        console.log('Search: ', this.searchTerm);
+      }
     }
 
 }

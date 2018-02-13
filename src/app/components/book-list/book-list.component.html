@@ -1,5 +1,8 @@
 <div class="container-fluid">
-    <div class="row" *ngFor="let book of books">
-      <a [routerLink]="['/book', book.id]">{{ book.volumeInfo.title }}</a>
+    <div class="row row border my-3 py-2" *ngFor="let book of books">
+        <div class="col"><a [routerLink]="['/book', book.id]">{{ book.volumeInfo?.authors?.join() }}</a></div>
+        <div class="col"><a [routerLink]="['/book', book.id]">{{ book.volumeInfo?.title }}</a></div>
+        <div class="col"><a [routerLink]="['/book', book.id]">{{ book.volumeInfo?.subtitle }}</a></div>
+        <div class="col"><a [routerLink]="['/book', book.id]">{{ book.volumeInfo?.publishedDate }}</a></div>
     </div>
 </div>

@@ -11,8 +11,12 @@ export class CartComponent implements OnInit {
     books: any;
     constructor(private cartService: CartService) { }
 
-  ngOnInit() {
-      this.books = this.cartService.getCart();
-  }
+    ngOnInit() {
+        this.books = this.cartService.getCart();
+    }
+
+    removeFromCart(book) {
+      this.cartService.removeFromCart(book);
+    }
 
 }

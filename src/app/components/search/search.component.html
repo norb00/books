@@ -1,4 +1,6 @@
-<input [(ngModel)]="searchTerm" >
-<button class="btn" (click)="doSearch()">
-  SEARCH
-</button>
+<form class="form-inline">
+    <input [(ngModel)]="searchTerm" class="form-control mr-sm-2" type="text" placeholder="Search" name="searchTerm">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="doSearch()">
+      SEARCH
+    </button>
+</form>

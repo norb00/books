@@ -1,5 +1,12 @@
 <div class="container-fluid">
-    <div class="row" *ngFor="let book of books">
-      <a [routerLink]="['/book', book.id]">{{ book.volumeInfo.title }}</a>
+    <span class="info">{{ books.length }} book(s) in a cart</span>
+    <div *ngFor="let book of books" class="row border my-3 py-2">
+        <div class="col"><a [routerLink]="['/book', book.id]">{{ book.volumeInfo?.authors?.join() }}</a></div>
+        <div class="col"><a [routerLink]="['/book', book.id]">{{ book.volumeInfo?.title }}</a></div>
+        <div class="col"><a [routerLink]="['/book', book.id]">{{ book.volumeInfo?.subtitle }}</a></div>
+        <div class="col"><a [routerLink]="['/book', book.id]">{{ book.volumeInfo?.publishedDate }}</a></div>
+        <div class="col">
+            <button type="button" class="btn btn-primary" (click)="removeFromCart(book)">REMOVE</button>
+        </div>
     </div>
 </div>
