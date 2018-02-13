@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import * as _ from 'lodash';
+import { Book } from './data-types'
 
 @Injectable()
 export class CartService {
@@ -14,7 +15,7 @@ export class CartService {
         this.books = JSON.parse(localStorage.getItem('cartItems')) || [];
     }
 
-    addToCart(book) {
+    addToCart(book: Book) {
         if (!this.getBook(book.id)) {
             this.books.push(book);
             if (window.localStorage !== undefined) {
@@ -24,7 +25,7 @@ export class CartService {
         }
     }
 
-    removeFromCart(book){
+    removeFromCart(book: Book){
         _.remove(this.books, {id: book.id});
         if (window.localStorage !== undefined) {
             localStorage.setItem('cartItems', JSON.stringify(this.books));

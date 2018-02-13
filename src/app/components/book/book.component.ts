@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../../cart.service';
 import { BookSearchService } from '../../book-search.service';
+import { Book } from '../../data-types'
 
 @Component({
     selector: 'app-book',
@@ -11,15 +12,7 @@ import { BookSearchService } from '../../book-search.service';
 export class BookComponent implements OnInit {
 
     public id: string;
-    public book: {
-        volumeInfo: {
-            authors: {},
-            imageLinks: {
-                thumbnail: ''
-            },
-            title: ''
-        }
-    };
+    public book: Book;
     constructor(private route: ActivatedRoute,
                 private cartService: CartService,
                 private bookSearchService: BookSearchService) {
@@ -34,7 +27,8 @@ export class BookComponent implements OnInit {
         });
     }
 
-    ngOnInit() {}
+    ngOnInit() {
+    }
 
     addToCart(book) {
         this.cartService.addToCart(book);

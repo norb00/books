@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class SearchComponent implements OnInit {
 
-    searchTerm;
+    searchTerm: string;
     constructor(private bookSerachService: BookSearchService,
                 private router: Router) {
         this.searchTerm = '';
