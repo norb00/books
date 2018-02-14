@@ -1,8 +1,11 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="books">
     <div class="row row border my-3 py-2" *ngFor="let book of books">
         <div class="col"><a [routerLink]="['/book', book.id]">{{ book.volumeInfo?.authors?.join() }}</a></div>
         <div class="col"><a [routerLink]="['/book', book.id]">{{ book.volumeInfo?.title }}</a></div>
         <div class="col"><a [routerLink]="['/book', book.id]">{{ book.volumeInfo?.subtitle }}</a></div>
         <div class="col"><a [routerLink]="['/book', book.id]">{{ book.volumeInfo?.publishedDate }}</a></div>
     </div>
+</div>
+<div class="container-flud text-center" *ngIf="!books">
+  <div class="text-center w-75 p-3 mx-auto mt-5 bg-info text-white">Use the search field on the top nav bar to search for books...</div>
 </div>

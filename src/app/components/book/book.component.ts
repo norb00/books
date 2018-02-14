@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../../cart.service';
 import { BookSearchService } from '../../book-search.service';
-import { Book } from '../../data-types'
+import { Book, BookList } from '../../data-types'
 
 @Component({
     selector: 'app-book',
@@ -30,7 +30,7 @@ export class BookComponent implements OnInit {
     ngOnInit() {
     }
 
-    addToCart(book) {
+    addToCart(book: Book) {
         this.cartService.addToCart(book);
     }
 }

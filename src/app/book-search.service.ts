@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { HttpClient } from '@angular/common/http';
-import { Book } from './data-types'
+import { Book, BookList } from './data-types'
 
 @Injectable()
 export class BookSearchService {
@@ -10,12 +10,12 @@ export class BookSearchService {
         searchUrl: 'https://www.googleapis.com/books/v1/volumes?q=',
         bookUrl: 'https://www.googleapis.com/books/v1/volumes/'
     };
-    private books: Array<Book>;
     private book: Book;
+    private books: BookList;
     private GURL: string;
 
     // Observable string sources
-    bookListChanged = new Subject<Array<Book>>();
+    bookListChanged = new Subject<BookList>();
     bookChanged = new Subject<Book>();
 
     // Observable string streams

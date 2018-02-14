@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import * as _ from 'lodash';
-import { Book } from './data-types'
+import { Book, BookList } from './data-types'
 
 @Injectable()
 export class CartService {
 
-    books;
+    books: BookList;
 
-    cartChanged = new Subject<any>();
+    cartChanged = new Subject<BookList>();
     cartChanged$ = this.cartChanged.asObservable();
 
     constructor() {
@@ -37,7 +37,7 @@ export class CartService {
         return this.books;
     }
 
-    getBook(id) {
+    getBook(id: string) {
         return _.find(this.books, {id});
     }
 

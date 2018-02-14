@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookSearchService } from '../../book-search.service';
-import { Book } from '../../data-types'
+import { Book, BookList } from '../../data-types'
 
 @Component({
   selector: 'app-book-list',
@@ -9,7 +9,7 @@ import { Book } from '../../data-types'
 })
 export class BookListComponent implements OnInit {
 
-    books: Array<Book>;
+    books: BookList;
     constructor(private bookSerachService: BookSearchService) {
         bookSerachService.bookListChanged.subscribe(
             books => {
